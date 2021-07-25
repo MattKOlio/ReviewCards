@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+/*
+    font-family: 'Lexend Deca', sans-serif;
+    font-family: 'Inter', sans-serif;
+*/
+
+/* COLORS */
+
+/* Background Colors */
+
+$bg-main: #090B1A;
+$bg-card: #1B1938;
+
+/* Font Colors */
+
+$clr-main: white;
+$clr-main-darker: #C6C5CD;
+$clr-accent: #AA5CDB;
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* TYPOGRAPHY */
+
+html,
+body {
+  font-size: 15px;
+}
+
+.card__title {
+  font-family: 'Inter', sans-serif;
+  color: $clr-main;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 1px;
+
+  .text-accent {
+    color: $clr-accent;
+  }
+}
+
+.card__body {
+  font-family: 'Lexend Deca', sans-serif;
+  color: $clr-main-darker;
+  font-size: .9rem;
+  line-height: 1.5;
+
+  .card__stars {
+    font-size: 1.2rem;
+    color: $clr-main;
+    align-self: flex-end;
+  }
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+
+    background-color: $bg-main;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    gap: 2em;
+
+    
+    .card {
+        background-color: $bg-card;
+        color: $clr-main;
+        height: 12em;
+        border-radius: .5em;
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: row;
+
+        border: .2em solid $bg-main;
+        transition: border 250ms;
+
+        &:hover,
+        &:focus {
+            border: .2em solid $clr-main;
+        }
+
+        .card__image {
+            background-image: url(img/image-header-desktop.jpg);
+            background-color: $clr-accent;
+            background-blend-mode: multiply;
+            background-size: cover;
+            height: 100%;
+            width: 25%;
+        }
+
+        .card__body {
+            width: 75%;
+            padding: 1em 2em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .cards {
+        padding: 2em 0;
+        
+        .card {
+            flex-direction: column;
+            height: auto;
+            text-align: center;
+
+            .card__image {
+                width: auto;
+                height: 200px;
+            }
+
+            .card__body {
+                width: 100%;
+                gap: 2em;
+
+                .card__stars {
+                    align-self: center;
+                }
+            }
+        }
+    }
+}
